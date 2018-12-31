@@ -1,18 +1,9 @@
 .input {
-	/* Textual */
-	&:not(.input-radio):not(.input-checkbox) {
-		.field__native {
-			min-height: 1.90rem;
-		}
-	}
-
+	/* Baseline styles */
   /* Radios & Checkboxes */
   &-radio,
   &-checkbox {
   	position: relative;
-
-  	.field--inline-left { flex-direction: row-reverse; }
-  	.field--inline-right { flex-direction: row; }
 
   	.field__label {
   		display: flex;
@@ -21,68 +12,65 @@
 
 			&:before {
 				content: '';
-				background-position: center;
-				background-repeat: no-repeat;
-				background-size: contain;
-				display: inline-block;
-				margin: 0 0.45rem;
-				width: var(--field__radio-size);
-				height: var(--field__radio-size);
 			}
   	}
 
 		.field__native {
 			cursor: pointer;
+			height: 100%;
 			opacity: 0;
+			padding: 0;
 			position: absolute;
 			width: 100%;
-			height: 100%;
-		}
-
-		&.field--inline-left {
-			.field__label {
-				flex-direction: row;
-			}
-		}
-
-		&.field--inline-right {
-			.field__label {
-				flex-direction: row-reverse;
-			}
 		}		
   }
 
-  &-radio {
-  	.field__native {
-			& + .field__label {
-				&::before {
-					background-image: url('./assets/radio-unchecked.svg');
-					border-radius: var(--field__radio-size);
-				}
-			}
+  /* Style variants */
+  &--default {
+		.field__native {
+			border: none;
+			border-radius: 4px;
+			box-shadow: 0 0 0 1px var(--color-gray-light);
+			margin: 0;
+			outline: none;
+			padding: 0.5rem 0.5rem;
+			transition: box-shadow 0.15s;
 
-			&:checked {
-				display: block;
-				& + .field__label:before {
-					background-image: url('./assets/radio-checked.svg');
-				}
+			&:--haf {
+				box-shadow: 0 0 0 2px var(--color-gray-light);
 			}
 		}
-  }
 
-  &-checkbox {
-  	.field__native {
-			& + .field__label {
-				&::before {
-					background-image: url('./assets/checkbox-unchecked.svg');
-				}
+		.field__label {
+			padding: 0.5rem;
+
+			&:before {
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: contain;
+				display: inline-block;
+				margin: 0 0.5rem;
+				padding: 0.5rem;				
+			}			
+		}
+
+		&.input-radio {
+			.field__label:before {
+				background-image: url('./assets/radio-unchecked.svg');
 			}
 
-			&:checked {
-				display: block;
-				& + .field__label:before {
-					background-image: url('./assets/checkbox-checked.svg');
-				}
+			.field__native:checked + .field__label:before {
+				background-image: url('./assets/radio-checked.svg');
+			}
+		}
+
+		&.input-checkbox {
+			.field__label:before {
+				background-image: url('./assets/checkbox-unchecked.svg');
+			}
+
+			.field__native:checked + .field__label:before {
+				background-image: url('./assets/checkbox-checked.svg');
 			}
 		}
   }

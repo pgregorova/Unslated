@@ -1,5 +1,26 @@
 .textarea {
-  .field__native {
-  	padding: calc(var(--field__radio-size) / 2);
-  }
+	/* Style variants */
+	&--default {
+		position: relative;
+
+		.field__label {
+			padding: 0.5rem;
+
+			&:before {
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: contain;
+				display: inline-block;
+				margin: 0 0.5rem;
+				padding: 0.5rem;				
+			}			
+		}
+
+		.field__native {
+			box-shadow: 0 0 0 1px var(--color-gray-light);
+			border:none;
+			border-radius: 4px;
+	  	padding: 0.25rem;
+	  }		
+	}  
 }

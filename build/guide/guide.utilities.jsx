@@ -1,3 +1,4 @@
+
 /*
   !!!!!!!!!!THIS IS ONLY FOR GUIDE PARTIALS!!!!!!!!!!
   !!!!!!!!!DO NO USE METHODS HERE IN ASSETS.JS!!!!!!!

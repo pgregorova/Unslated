@@ -30,14 +30,17 @@ export class Form extends React.Component {
     /** Action is the location to which a form's data will be posted */
     action: PropTypes.string.isRequired,
     /** Method sets the request type of the form (POST or GET) */
-    method: PropTypes.oneOf(['get', 'post']).isRequired  
+    method: PropTypes.oneOf(['get', 'post']).isRequired,
+    /** Rhythm allows you to define how much vertical spacing of fields */
+    rhythm: PropTypes.oneOf(['small', 'medium', 'large'])    
   };
 
   static defaultProps = {
     tagName: 'form',
     variant: 'default',
     action: '#/',
-    method: 'post'
+    method: 'post',
+    rhythm: 'medium',
   };
 
   render = () => {
@@ -50,6 +53,7 @@ export class Form extends React.Component {
       submit,
       action,
       method,
+      rhythm,
       ...attrs
     } = this.props;
 
@@ -66,7 +70,7 @@ export class Form extends React.Component {
         method={method}
         {...attrs}
       > 
-        <FormFieldset legend={legend} submit={submit}>
+        <FormFieldset legend={legend} submit={submit} rhythm={rhythm}>
           {children}
         </FormFieldset>
       </Tag>
@@ -94,7 +98,9 @@ export class FormFieldset extends React.Component {
     submit: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.element
-    ])
+    ]),
+    /** Rhythm allows you to define how much vertical spacing of fields */
+    rhythm: PropTypes.oneOf(['small', 'medium', 'large'])
   };
 
   static defaultProps = {
@@ -111,6 +117,7 @@ export class FormFieldset extends React.Component {
       children,
       legend,
       submit,
+      rhythm,
       ...attrs
     } = this.props;
 
@@ -141,7 +148,7 @@ export class FormFieldset extends React.Component {
         {...attrs}
       >
         <legend hidden>{legend}</legend>
-        <Rhythm tagName="ol" className="list list--blank">
+        <Rhythm tagName="ol" className="list list--blank" size={rhythm}>
           {children}
           {getSubmitButton()}
         </Rhythm>

@@ -1,5 +1,6 @@
 const Webpack = require('webpack');
 const path = require('path');
+const AlexWebpackPlugin = require('../../guide/alex/alex.webpack.js');
 
 // all js(x) files get ran through these build processes
 module.exports = {
@@ -24,6 +25,7 @@ module.exports = {
       'React': 'react', // (see: https://reactjs.org/)
       'ReactDOM': 'react-dom', // (see: https://reactjs.org/docs/react-dom.html)
       'PropTypes': 'prop-types' // (see: https://reactjs.org/docs/render-props.html)
-    })
+    }),
+    new AlexWebpackPlugin() // This allows alex access to webpack build stats object for error reporting
   ]
 };

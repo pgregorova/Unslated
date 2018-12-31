@@ -3,7 +3,7 @@ import Pages from '@guide/partials/pages/guide__pages';
 import Welcome from '@guide/partials/welcome/guide__welcome';
 import Examples from '@guide/partials/examples/guide__examples';
 import Readme from '@guide/partials/readme/guide__readme';
-import { Switch, BrowserRouter, Route } from 'react-router-dom';
+import { Switch, BrowserRouter, Route, Redirect } from 'react-router-dom';
 
 export const Guide = (props) => {
   const {
@@ -28,6 +28,7 @@ export const Guide = (props) => {
             <Route exact path='/examples' component={Welcome} />
             <Route path='/examples/:category/:element' component={Examples} />
             <Route path='/pages/:page' component={Pages} />
+            <Route path="/api" /> 
           </Switch>
         </BrowserRouter>
       </main>

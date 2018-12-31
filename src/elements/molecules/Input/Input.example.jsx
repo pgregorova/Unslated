@@ -27,7 +27,8 @@ export default [{
   docs,
   examples: [
     {
-      name: 'Text Inputs (Default stacked bottom)',
+      name: 'Text Input',
+      description: 'Default alignment of input bottom',
       component: (
         <Form legend="Fieldset legend">
           <Input label="Basic input label text" type="text" name="text-input" required={true} />
@@ -35,31 +36,35 @@ export default [{
       ),
       notes: ''
     }, {
-      name: 'Text Inputs (Stacked top)',
+      name: 'Text Input',
+      description: 'Using top align',
       component: (
         <Form legend="Fieldset legend">
-          <Input label="Basic input label text" type="text" name="text-input" align="stacked-top" required={true} />
+          <Input label="Basic input label text" type="text" name="text-input" align="top" required={true} />
         </Form>
       ),
       notes: ''
     }, {
-      name: 'Text Inputs (Inline left)',
+      name: 'Text Inputs',
+      description: 'Using left align',      
       component: (
         <Form legend="Fieldset legend">
-          <Input label="Inline input label text" type="text" name="text-input" align="inline-left" required={true} />
+          <Input label="Inline input label text" type="text" name="text-input" align="left" required={true} />
         </Form>
       ),
       notes: ''
     }, {
-      name: 'Text Inputs (Inline right)',
+      name: 'Text Inputs',
+      description: 'Using right align',      
       component: (
         <Form legend="Fieldset legend">
-          <Input label="Inline input label text" type="text" name="text-input" align="inline-right" required={true} />
+          <Input label="Inline input label text" type="text" name="text-input" align="right" required={true} />
         </Form>
       ),
       notes: ''
     }, {
       name: 'Text Inputs (without label, with placeholder)',
+      description: 'With label={false} and placeholder attribute',      
       component: (
         <Form legend="Fieldset legend">
           <Input name="test-name" label={false} type="text" name="text-input" placeholder="Labeless with placeholder" required={true} />
@@ -67,7 +72,7 @@ export default [{
       ),
       notes: ''
     }, {
-      name: 'Radio Inputs (Default inline left)',
+      name: 'Radio Inputs',
       component: (
         <Form legend="Fieldset legend">
           <Input label="Inline radio label text" type="radio" name="radio-inline-left" required={true} />
@@ -78,7 +83,7 @@ export default [{
       name: 'Radio Inputs (Inline right)',
       component: (
         <Form legend="Fieldset legend">
-          <Input label="Inline radio label text" type="radio" align="inline-right" name="radio-inline-right" required={true} />
+          <Input label="Inline radio label text" type="radio" align="right" name="radio-inline-right" required={true} />
         </Form>
       ),
       notes: ''
@@ -103,7 +108,7 @@ export default [{
       name: 'Checkbox Inputs (Inline right)',
       component: (
         <Form legend="Fieldset legend">
-          <Input label="Inline checkbox label text" type="checkbox" name="checkbox-input" align="inline-right" required={true} />
+          <Input label="Inline checkbox label text" type="checkbox" name="checkbox-input" align="right" required={true} />
         </Form>
       ),
       notes: ''

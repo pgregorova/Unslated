@@ -1,67 +1,76 @@
-:root {
-	--field-padding: 0.25rem 0.35rem;
-	--field__radio-size: 1rem;
-}
-
 .form {
-	padding: 1rem;
+	/* Baseline styles */
+	.field__label {
+		display: block;
+		transition: color 0.15s;
+	}
 
-	/* Field Error, Align, Labels */
+	.field__native { outline: none; }
+
+	/* Field error */
+	.field__error {
+		.field__native {
+			&, &:--haf {
+				box-shadow: 0 0 0 2px var(--color-red);
+			}
+
+			& + .field__label:before {
+				box-shadow: 0 0 0 2px var(--color-red) inset;
+			}
+		}
+
+		.field__label {
+			color: var(--color-red);
+		}
+	}
+
+	/* Field alignment */
   .field {
-		&__error {
-	  	.field__native {
-  			outline: none;
-  			border: 1px solid var(--color-red);
+		display: flex;
 
-  			& + .field__label:before {
-  				border: 1px solid var(--color-red);
-  			}
-	  	}
-		}
-
-  	&__label { 
-  		display: block;
-  		padding: var(--field-padding);
-  	}
-
-  	&__native { 
-  		padding: var(--field-padding);
-  		border: 1px solid var(--color-black);
-  		margin: 0;
-  		padding: 0;
-
-  		&:focus:invalid {
-  			outline: none;
-  			border: 1px solid var(--color-red);
-
-  			& + label:before {
-  				border: 1px solid var(--color-red);
-  			}  			
-  		}  		
-  	}
-
-		&--stacked-top,
-		&--stacked-bottom,
-		&--inline-left,
-		&--inline-right {
-			display: flex;
-		}
-
-		/* Stackeded */
-		&--stacked-top,
-		&--stacked-bottom {
+		&--top, &--bottom {
 			align-items: flex-start;
+
 			.field__label {
 				padding-left: 0;
 				padding-right: 0;
 			}		
 		}
 
-		&--stacked-top { flex-direction: column-reverse; }
-		&--stacked-bottom { flex-direction: column; }
+		&--top 		{ flex-direction: column-reverse; }
+		&--bottom { flex-direction: column; }
 
-		/* Inline */
-		&--inline-left { flex-direction: row-reverse; justify-content: flex-end; }
-		&--inline-right { flex-direction: row; }
+		&--left 	{
+			flex-direction: row-reverse;
+			justify-content: flex-end;
+
+			.field__native + .field__label {
+				flex-direction: row;
+  			align-items: center;
+
+  			&:before {
+  				margin-left: 0;
+  			}
+			}
+		}
+
+		&--right 	{
+			flex-direction: row;
+
+			.field__native + .field__label {
+				flex-direction: row-reverse;
+				justify-content: flex-end;
+				align-items: center;
+
+				&:before {
+					margin-right: 0;
+				}
+			}			
+		}
+  }
+
+  /* Style variants */
+  &--default {
+		padding: 1rem;  	
   }
 }

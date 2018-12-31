@@ -1,3 +1,5 @@
+import Alex from '@guide/alex/alex.client.js';
+
 export const Guide = (el) => {
   const ui = {
     el,
@@ -13,10 +15,6 @@ export const Guide = (el) => {
     colorAccessibilityLevel: document.querySelector('.accessibility__controls-level select'),
     colorAccessibilityWeight: document.querySelector('.accessibility__controls-weight select')
   };
-
-  const state = {
-    currentExample: document.querySelectorAll('.examples__item')[0]
-  }
 
   // Switch between minimized and maximized stylist window
   const switchStylistMinMax = () => {
@@ -229,8 +227,9 @@ export const Guide = (el) => {
         switchColorSamples();
       });
     }
+    
+    new Alex();
   };
-
   init();
 };
 

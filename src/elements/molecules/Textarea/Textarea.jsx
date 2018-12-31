@@ -34,12 +34,12 @@ export class Textarea extends React.Component {
   static defaultProps = {
     tagName: 'li',
     variant: 'default',
-    align: 'stacked-bottom',
-    required: false,    
+    align: 'bottom',
+    required: false 
   };
 
   render = () => {
-    const {
+    let {
       tagName: Tag,
       className,
       variant,
@@ -54,10 +54,15 @@ export class Textarea extends React.Component {
     } = this.props;
 
     const classStack = Utils.createClassStack([
-      'textarea',
-      `field field--${align} field--${variant}`,
+      'textarea field',
+      `textarea--${variant}`,
+      `field--${align}`,
       className
     ]);
+
+    if (!pattern && required) {
+      pattern = '(.*?)';
+    }
 
     return (
       <Tag
@@ -69,7 +74,12 @@ export class Textarea extends React.Component {
             <label className="field__label">{label}</label>
           : ''
         }      
-        <textarea className="field__native" name={name} pattern={pattern} required={required} {...attrs} defaultValue={children} />
+        <textarea
+          className="field__native"
+          name={name} pattern={pattern}
+          required={required}
+          defaultValue={children}
+          {...attrs} />
       </Tag>
     );
   }

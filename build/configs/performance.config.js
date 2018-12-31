@@ -20,7 +20,14 @@ module.exports = {
     devServer: {
       stats: {
         stats: 'errors-only' // enable / disable dev server stats
-      }
+      },
+      proxy: {
+        '/api': {
+          target: 'http://localhost:8090',
+          changeOrigin: true,
+          secure: false
+        }
+      }      
     }
   }
 };

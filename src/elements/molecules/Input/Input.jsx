@@ -36,13 +36,11 @@ export class Input extends React.Component {
   static defaultProps = {
     tagName: 'li',
     variant: 'default',
-    align: 'stacked-bottom',
-    required: false,
-    pattern: '(.*?)'
+    required: false
   };
 
   render = () => {
-    const {
+    let {
       tagName: Tag,
       className,
       variant,
@@ -56,12 +54,25 @@ export class Input extends React.Component {
       ...attrs
     } = this.props;
 
+    if (!align) {
+      if (type !== 'radio' && type !== 'checkbox') {
+        align = 'bottom';
+      } else {
+        align = 'left';
+      }
+    }
+
     const classStack = Utils.createClassStack([
-      'input',
+      'input field',
       `input-${type}`,
-      `field field--${align} field--${variant}`,
+      `input--${variant}`,
+      `field--${align}`,
       className
     ]);
+
+    if (!pattern && required) {
+      pattern = '(.*?)';
+    }
 
     return (
       <Tag

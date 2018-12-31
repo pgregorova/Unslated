@@ -36,7 +36,7 @@ export class Select extends React.Component {
   static defaultProps = {
     tagName: 'li',
     variant: 'default',
-    align: 'stacked-bottom',
+    align: 'bottom',
     required: false
   };
 
@@ -56,8 +56,9 @@ export class Select extends React.Component {
     } = this.props;
 
     const classStack = Utils.createClassStack([
-      'select',
-      `field field--${align} select--${variant}`,
+      'select field', 
+      `select--${variant}`,
+      `field--${align}`, 
       className
     ]);
 

@@ -30,7 +30,7 @@ export default [{
       name: 'Textarea (Default stacked bottom)',
       component: (
         <Form legend="Fieldset legend">
-          <Textarea label="Basic input label text" type="text" name="text-input" required={true}>
+          <Textarea label="Basic input label text" type="text" name="text-input" required={true} cols="80" rows="5">
             This is my test content within a textarea.
           </Textarea>
         </Form>
@@ -40,7 +40,7 @@ export default [{
       name: 'Textarea (Stacked top)',
       component: (
         <Form legend="Fieldset legend">
-          <Textarea label="Basic input label text" type="text" name="text-input" align="stacked-top" required={true}>
+          <Textarea label="Basic input label text" type="text" name="text-input" align="top" required={true} cols="80" rows="5">
             This is my test content within a textarea.
           </Textarea>
         </Form>
@@ -50,7 +50,7 @@ export default [{
       name: 'Textarea (Inline left)',
       component: (
         <Form legend="Fieldset legend">
-          <Textarea label="Inline input label text" type="text" name="text-input" align="inline-left" required={true}>
+          <Textarea label="Inline input label text" type="text" name="text-input" align="left" required={true} cols="80" rows="5">
             This is my test content within a textarea.
           </Textarea>
         </Form>
@@ -60,7 +60,7 @@ export default [{
       name: 'Textarea (Inline right)',
       component: (
         <Form legend="Fieldset legend">
-          <Textarea label="Inline input label text" type="text" name="text-input" align="inline-right" required={true}>
+          <Textarea label="Inline input label text" type="text" name="text-input" align="right" required={true} cols="80" rows="5">
             This is my test content within a textarea.
           </Textarea>
         </Form>
@@ -70,7 +70,7 @@ export default [{
       name: 'Textarea (without label)',
       component: (
         <Form legend="Fieldset legend">
-          <Textarea name="test-name" label={false} type="text" name="text-input" required={true}>
+          <Textarea name="test-name" label={false} type="text" name="text-input" required={true} cols="80" rows="5">
             This is my test content within a textarea.
           </Textarea>
         </Form>
