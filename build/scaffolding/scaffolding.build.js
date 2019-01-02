@@ -108,7 +108,7 @@ class CreateAtomicElement {
 		this.copyFolderRecursiveSync(
 			path.resolve(
 				__dirname, 
-				(this.type === 'modifiers')? './modifiers' : './elements'
+				(this.type === 'modifiers')? './modifiers' : (this.type === 'pages')? './pages' : './elements'
 			), newElementPath
 		);
 
